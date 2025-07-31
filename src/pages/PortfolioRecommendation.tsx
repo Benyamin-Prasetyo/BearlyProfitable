@@ -111,28 +111,42 @@ const PortfolioRecommendation = () => {
             </ResponsiveContainer>
           </div>
           <div className="w-full md:w-1/3 mt-6 md:mt-0 md:ml-8">
-            <table className="w-full bg-background rounded shadow border border-border">
-              <thead>
-                <tr>
-                  <th className="p-2 text-left">Estimate</th>
-                  <th className="p-2 text-right">Value (6mo)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="p-2 text-green-500 font-semibold">High</td>
-                  <td className="p-2 text-right">{chartDataObj.estimates[0].ratio.toFixed(2)}</td>
-                </tr>
-                <tr>
-                  <td className="p-2 text-blue-400 font-semibold">Median</td>
-                  <td className="p-2 text-right">{chartDataObj.estimates[1].ratio.toFixed(2)}</td>
-                </tr>
-                <tr>
-                  <td className="p-2 text-red-500 font-semibold">Low</td>
-                  <td className="p-2 text-right">{chartDataObj.estimates[2].ratio.toFixed(2)}</td>
-                </tr>
-              </tbody>
-            </table>
+            <h3 className="text-lg font-medium mb-4">Price Targets</h3>
+            <div className="space-y-4">
+              <div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-sm font-medium">Bullish Case</span>
+                  <span className="text-green-500 font-medium">${(chartDataObj.estimates[0].ratio * 2).toFixed(2)}</span>
+                </div>
+                <div className="w-full bg-accent h-2 rounded-full">
+                  <div className="bg-green-500 h-2 rounded-full" style={{ width: '80%' }}></div>
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">80% upside potential</p>
+              </div>
+              <div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-sm font-medium">Base Case</span>
+                  <span className="text-blue-500 font-medium">${(chartDataObj.estimates[1].ratio * 2).toFixed(2)}</span>
+                </div>
+                <div className="w-full bg-accent h-2 rounded-full">
+                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: '55%' }}></div>
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">55% upside potential</p>
+              </div>
+              <div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-sm font-medium">Bearish Case</span>
+                  <span className="text-red-500 font-medium">${(chartDataObj.estimates[2].ratio * 2).toFixed(2)}</span>
+                </div>
+                <div className="w-full bg-accent h-2 rounded-full">
+                  <div className="bg-red-500 h-2 rounded-full" style={{ width: '25%' }}></div>
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">25% downside risk</p>
+              </div>
+              <div className="mt-4 p-3 bg-background/50 rounded-md text-xs text-muted-foreground">
+                <p>Note: These forecasts are based on AI analysis of historical data, market trends, and sentiment. Actual results may vary. Always perform your own research before making investment decisions.</p>
+              </div>
+            </div>
           </div>
         </div>
         <table className="w-full bg-card rounded shadow mb-8">
@@ -148,83 +162,41 @@ const PortfolioRecommendation = () => {
             <tr><td className="p-2">Expected Return</td><td className="p-2">8.7%</td></tr>
           </tbody>
         </table>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-card border border-border rounded-lg p-4">
-            <h2 className="text-lg font-medium mb-4">Forecast Insights</h2>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-                  <TrendingUp size={16} className="text-blue-500" />
-                </div>
-                <div>
-                  <h3 className="font-medium">Upward Trend Detected</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Our AI model predicts a positive trend for the portfolio over the next 6 months with 76% confidence.
-                  </p>
-                </div>
+        <div className="bg-card border border-border rounded-lg p-4">
+          <h2 className="text-lg font-medium mb-4">Forecast Insights</h2>
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                <TrendingUp size={16} className="text-blue-500" />
               </div>
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
-                  <TrendingUp size={16} className="text-green-500" />
-                </div>
-                <div>
-                  <h3 className="font-medium">Support Level Identified</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Strong support level detected at $185.20. Portfolio value expected to bounce from this level if tested.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
-                  <Info size={16} className="text-yellow-500" />
-                </div>
-                <div>
-                  <h3 className="font-medium">Upcoming Catalysts</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Earnings season and macroeconomic events could impact portfolio performance.
-                  </p>
-                </div>
+              <div>
+                <h3 className="font-medium">Upward Trend Detected</h3>
+                <p className="text-sm text-muted-foreground">
+                  Our AI model predicts a positive trend for the portfolio over the next 6 months with 76% confidence.
+                </p>
               </div>
             </div>
-          </div>
-          <div className="bg-card border border-border rounded-lg p-4">
-            <h2 className="text-lg font-medium mb-4">Price Targets</h2>
-            <div className="space-y-4">
-              <div>
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium">Bullish Case</span>
-                  <span className="text-green-500 font-medium">$245.30</span>
-                </div>
-                <div className="w-full bg-accent h-2 rounded-full">
-                  <div className="bg-green-500 h-2 rounded-full" style={{ width: '80%' }}></div>
-                </div>
-                <p className="text-xs text-muted-foreground mt-1">80% upside potential</p>
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                <TrendingUp size={16} className="text-green-500" />
               </div>
               <div>
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium">Base Case</span>
-                  <span className="text-blue-500 font-medium">$214.56</span>
-                </div>
-                <div className="w-full bg-accent h-2 rounded-full">
-                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: '55%' }}></div>
-                </div>
-                <p className="text-xs text-muted-foreground mt-1">55% upside potential</p>
-              </div>
-              <div>
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium">Bearish Case</span>
-                  <span className="text-red-500 font-medium">$165.20</span>
-                </div>
-                <div className="w-full bg-accent h-2 rounded-full">
-                  <div className="bg-red-500 h-2 rounded-full" style={{ width: '25%' }}></div>
-                </div>
-                <p className="text-xs text-muted-foreground mt-1">25% downside risk</p>
+                <h3 className="font-medium">Support Level Identified</h3>
+                <p className="text-sm text-muted-foreground">
+                  Strong support level detected at $185.20. Portfolio value expected to bounce from this level if tested.
+                </p>
               </div>
             </div>
-            <div className="mt-6 p-3 bg-accent/50 rounded-md">
-              <p className="text-sm text-muted-foreground">
-                <strong>Note:</strong> These forecasts are based on AI analysis of historical data, market trends, and sentiment. Actual results may vary. Always perform your own research before making investment decisions.
-              </p>
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
+                <Info size={16} className="text-yellow-500" />
+              </div>
+              <div>
+                <h3 className="font-medium">Upcoming Catalysts</h3>
+                <p className="text-sm text-muted-foreground">
+                  Earnings season and macroeconomic events could impact portfolio performance.
+                </p>
+              </div>
             </div>
           </div>
         </div>
