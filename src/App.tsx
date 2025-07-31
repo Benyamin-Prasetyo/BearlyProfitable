@@ -8,6 +8,7 @@ import Forecast from './pages/Forecast';
 import AIInsights from './pages/AIInsights';
 import TickerEntry from './pages/TickerEntry';
 import PortfolioRecommendation from './pages/PortfolioRecommendation';
+import StockInsight from './pages/StockInsight';
 import { ThemeProvider } from './components/ThemeProvider';
 import { SelectedTickersProvider } from './components/SelectedTickersContext';
 
@@ -25,6 +26,8 @@ function AppLayout({ sidebarOpen, setSidebarOpen }: { sidebarOpen: boolean, setS
             <Route path="/portfolio-recommendation" element={<PortfolioRecommendation />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/stock/:symbol" element={<StockDetail />} />
+            <Route path="/stock-insight" element={<StockInsight />} />
+            <Route path="/stock-insight/:symbol" element={<StockInsight />} />
             <Route path="/ai-insights" element={<AIInsights />} />
           </Routes>
         </main>
