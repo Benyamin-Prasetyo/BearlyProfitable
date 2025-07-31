@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { stockList } from '../utils/mockData';
 import { useSelectedTickers } from '../components/SelectedTickersContext';
+import logoUrl from '../assets/bearlyprofitablelogo.svg';
 
 type Stock = typeof stockList[number];
 
@@ -54,10 +55,7 @@ const TickerEntry = () => {
     <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
       <div className="w-full max-w-md p-8 bg-card rounded-lg shadow-lg flex flex-col items-center">
         <div className="mb-6 flex flex-col items-center">
-          <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mb-2">
-            <span className="text-2xl font-bold">🐻</span>
-          </div>
-          <h1 className="text-xl font-bold mb-1">BearlyProfitable</h1>
+          <img src={logoUrl} alt="BearlyProfitable Logo" className="w-64 h-auto mb-4" />
           <p className="text-muted-foreground text-center">
             Enter your preferred stock codes to get portfolio recommendation
           </p>
